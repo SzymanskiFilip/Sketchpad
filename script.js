@@ -1,14 +1,11 @@
 let container = document.getElementById('container');
 let changeSizeButton = document.getElementById('change-size-button');
 let randomColorButton = document.getElementById('random-color-button');
+let colorPicker = document.getElementById('color-picker');
 let randomColorButtonState = true;
 
 randomColorButton.addEventListener('click', function(){
-    if(randomColorButtonState == true){
-        randomColorButton.innerHTML = "<h1>RANDOM COLOR: OFF</h1>";
-    } else if(randomColorButtonState == false){
-        randomColorButton.innerHTML = "<h1>RANDOM COLOR: ON</h1>";
-    }
+    
 });
 
 function randomColorSwitch(){

@@ -23,3 +23,21 @@ h1{
     background-color: white;
     border: 1px solid black;
 }
+
+.color-picker{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.random-color-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unvisible{
+    visibility: hidden;
+}
+
