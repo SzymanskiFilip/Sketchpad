@@ -13,6 +13,10 @@ function removeGridElements(){
 
 function changeSize(){
     let size = prompt('Enter the grid size: ');
+    if(size > 20){
+        alert('The maximal size of the grid is 20, setting it to 20');
+        size = 20;
+    }
     removeGridElements();
     initializeGrid(size);
 }
