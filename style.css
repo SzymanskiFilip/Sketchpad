@@ -17,4 +17,13 @@ h1{
     margin-top: 100px;
     width: 600px;
     height: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item{
+    height: 50px;
+    width: 50px;
+    background-color: black;
 }
