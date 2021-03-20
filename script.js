@@ -39,7 +39,6 @@ function initializeGrid(gridSize){
     for(let x = 1; x < gridSize * gridSize + 1; x++){
         let gridElement = document.createElement("div");
         gridElement.className = "item";
-        gridElement.textContent = `${x}`;
 
         gridElement.addEventListener('mouseover', function(){
             gridElement.style.backgroundColor = randomColor();
