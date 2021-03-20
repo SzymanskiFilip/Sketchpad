@@ -32,9 +32,13 @@ function initializeGrid(gridSize){
         gridElement.className = "item";
         gridElement.textContent = `${x}`;
         
+        gridElement.addEventListener('mouseover', function(){
+            gridElement.style.backgroundColor = 'blue';
+        });
+
         container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
         container.style.gridTemplateRows = `repeat(${gridSize}, auto)`;
-        container.appendChild(gridElement);
+        container.appendChild(gridElement); 
     }
 }
 
