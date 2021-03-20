@@ -14,8 +14,8 @@ h1{
 .container{
     background-color: white;
     margin: auto;
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     display: grid;
 }
 

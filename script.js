@@ -1,5 +1,19 @@
 let container = document.getElementById('container');
 let changeSizeButton = document.getElementById('change-size-button');
+let randomColorButton = document.getElementById('random-color-button');
+let randomColorButtonState = true;
+
+randomColorButton.addEventListener('click', function(){
+    if(randomColorButtonState == true){
+        randomColorButton.innerHTML = "<h1>RANDOM COLOR: OFF</h1>";
+    } else if(randomColorButtonState == false){
+        randomColorButton.innerHTML = "<h1>RANDOM COLOR: ON</h1>";
+    }
+});
+
+function randomColorSwitch(){
+    
+}
 
 //Adds a event listener to the change size button
 changeSizeButton.addEventListener('click', function(){
@@ -25,9 +39,9 @@ function changeSize(){
         alert('Minimum size of grid is 1!');
         size = 1;
     }
-    if(size > 20){
-        alert('The maximal size of the grid is 20, setting it to 20');
-        size = 20;
+    if(size > 100){
+        alert('The maximal size of the grid is 100, setting it to 100');
+        size = 100;
     }
     removeGridElements();
     initializeGrid(size);
@@ -40,9 +54,17 @@ function initializeGrid(gridSize){
         let gridElement = document.createElement("div");
         gridElement.className = "item";
 
-        gridElement.addEventListener('mouseover', function(){
+        if(randomColorButtonState == true){
+            gridElement.addEventListener('mouseover', function(){
             gridElement.style.backgroundColor = randomColor();
-        });
+            });
+        }
+
+        if(randomColorButtonState == false){
+            gridElement.addEventListener('mouseover', function(){
+            gridElement.style.backgroundColor = chosenColor();
+            });
+        }    
 
         container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
         container.style.gridTemplateRows = `repeat(${gridSize}, auto)`;
@@ -50,5 +72,5 @@ function initializeGrid(gridSize){
     }
 }
 
-initializeGrid(2);
+initializeGrid(10);
 
