@@ -1,16 +1,24 @@
 let container = document.getElementById('container');
 let changeSizeButton = document.getElementById('change-size-button');
 
+//Adds a event listener to the change size button
 changeSizeButton.addEventListener('click', function(){
     changeSize();
 });
 
+//removes all elements of the grid
 function removeGridElements(){
     let items = document.querySelectorAll('.item');
     items.forEach(element => element.remove());
 }
 
+//randomizes a color
+function randomColor(){
+    const random = Math.floor(Math.random()*16777215).toString(16);
+    return "#"+random;
+}
 
+//changes the size of the grid
 function changeSize(){
     let size = prompt('Enter the grid size: ');
     if(size < 1){
@@ -25,15 +33,16 @@ function changeSize(){
     initializeGrid(size);
 }
 
-
+//creates a new grid with the given size after the click
+//adds a eventListener to every element
 function initializeGrid(gridSize){
     for(let x = 1; x < gridSize * gridSize + 1; x++){
         let gridElement = document.createElement("div");
         gridElement.className = "item";
         gridElement.textContent = `${x}`;
-        
+
         gridElement.addEventListener('mouseover', function(){
-            gridElement.style.backgroundColor = 'blue';
+            gridElement.style.backgroundColor = randomColor();
         });
 
         container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
