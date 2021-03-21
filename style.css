@@ -7,8 +7,29 @@ body{
     background-color: whitesmoke;
 }
 
-h1{
+.title-wrapper{
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
     text-align: center;
+    width: 250px;
+    padding: 25px;
+}
+
+.wrap-change-size-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.change-size-button{
+    padding: 25px;
+    background-color: green;
 }
 
 .container{
