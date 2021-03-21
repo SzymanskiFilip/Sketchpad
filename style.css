@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Poppins',
+    sans-serif;
 }
 
 body{
@@ -8,7 +10,6 @@ body{
 }
 
 .title-wrapper{
-    margin: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +17,7 @@ body{
 
 .title{
     text-align: center;
-    width: 250px;
-    padding: 25px;
+    font-size: 55px;
 }
 
 .wrap-change-size-button{
@@ -29,14 +29,15 @@ body{
 
 .change-size-button{
     padding: 25px;
-    background-color: green;
+    background-color: #1de9b6;
+    border-radius: 5%;
 }
 
 .container{
     background-color: white;
     margin: auto;
-    width: 650px;
-    height: 650px;
+    width: 600px;
+    height: 600px;
     display: grid;
 }
 
