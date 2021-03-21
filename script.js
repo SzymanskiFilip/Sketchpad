@@ -1,16 +1,52 @@
 let container = document.getElementById('container');
 let changeSizeButton = document.getElementById('change-size-button');
 let randomColorButton = document.getElementById('random-color-button');
-let colorPicker = document.getElementById('color-picker');
 let randomColorButtonState = true;
+let colorChoice = document.getElementById('color-choice'); 
+let chosenColor = 'black';
 
+//random color switch button
 randomColorButton.addEventListener('click', function(){
-    
+    if(randomColorButtonState == true){
+        randomColorButtonState = false;
+        randomColorButton.innerHTML = '<h1>RANDOM COLOR: OFF</h1>';
+        console.log(randomColorButtonState);
+
+        let divs = document.querySelectorAll('.item');
+        divs.forEach(item => {
+            item.removeEventListener('mouseover', addRandomDrawingListener);
+            item.addEventListener('mouseover', addDrawingListener(item));
+        });
+    } else if(randomColorButtonState == false){
+        randomColorButtonState = true;
+        randomColorButton.innerHTML = '<h1>RANDOM COLOR: ON</h1>';
+        console.log(randomColorButtonState);
+
+        let divs = document.querySelectorAll('.item');
+        divs.forEach(item => {
+            item.removeEventListener('mouseover', addDrawingListener);
+            item.addEventListener('mouseover', addRandomDrawingListener(item));
+        });
+    }
 });
 
-function randomColorSwitch(){
-    
+function addRandomDrawingListener(gridElement){
+    gridElement.addEventListener('mouseover', function(){
+        gridElement.style.backgroundColor = randomColor();
+    });
 }
+
+function addDrawingListener(gridElement){
+    gridElement.addEventListener('mouseover', function(){
+        gridElement.style.backgroundColor = chosenColor;
+    });
+}
+
+colorChoice.addEventListener('change', function(){
+    chosenColor = colorChoice.value;
+    console.log(chosenColor);
+});
+
 
 //Adds a event listener to the change size button
 changeSizeButton.addEventListener('click', function(){
@@ -50,24 +86,15 @@ function initializeGrid(gridSize){
     for(let x = 1; x < gridSize * gridSize + 1; x++){
         let gridElement = document.createElement("div");
         gridElement.className = "item";
-
-        if(randomColorButtonState == true){
-            gridElement.addEventListener('mouseover', function(){
-            gridElement.style.backgroundColor = randomColor();
-            });
-        }
-
-        if(randomColorButtonState == false){
-            gridElement.addEventListener('mouseover', function(){
-            gridElement.style.backgroundColor = chosenColor();
-            });
-        }    
-
+        addRandomDrawingListener(gridElement);
+             
+        size = gridSize;
         container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
         container.style.gridTemplateRows = `repeat(${gridSize}, auto)`;
         container.appendChild(gridElement); 
     }
 }
 
-initializeGrid(10);
+
+initializeGrid(12);
 
