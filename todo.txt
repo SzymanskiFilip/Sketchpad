@@ -1,0 +1,7 @@
+-make a toggle switch of the random color button if on rainbow if off chosen color
+
+-save the colorPicker value to variable on change
+
+-if switch on draw in chosen color 
+
+-style the fonts etc
