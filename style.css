@@ -60,9 +60,18 @@ body{
 }
 
 
-
 .random-color-button{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.random-div{
+    -webkit-transition: box-shadow 0.3s;
+    transition: .3s;
+}
+
+.random-div:hover{
+    text-shadow: 0px 0px 15px rgb(194, 164, 164);
+    transition: .3s;
 }
